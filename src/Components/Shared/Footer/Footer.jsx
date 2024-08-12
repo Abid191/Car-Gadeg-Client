@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="footer bg-base-200 text-base-content p-10">
+        <footer className="footer bg-black text-white p-10">
             <nav>
                 <h6 className="footer-title">Services</h6>
                 <a className="link link-hover">Branding</a>
@@ -27,7 +27,7 @@ const Footer = () => {
                 <h6 className="footer-title">Newsletter</h6>
                 <fieldset className="form-control w-80">
                     <label className="label">
-                        <span className="label-text">Enter your email address</span>
+                        <span className="label-text text-white">Enter your email address</span>
                     </label>
                     <div className="join">
                         <input
