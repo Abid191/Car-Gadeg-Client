@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import register from '../../../../assets/images/login/login.svg'
 import SocialLogin from '../../../Shared/SocialLogin/SocialLogin';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Register = () => {
+
+    const {createUser} = useContext(AuthContext)
 
     const handleSignUp = (e) => {
         e.preventDefault();
@@ -11,15 +14,15 @@ const Register = () => {
         const name = form.name.value
         const email = form.email.value
         const password = form.password.value
-    
+        form.reset()
         console.log(name,email,password)
     
-        // createUser(email,password)
-        // .then(result=>{
-        //     const user = result.user
-        //     console.log(user)
-        // })
-        // .catch(err=>console.log(err))
+        createUser(email,password)
+        .then(result=>{
+            const user = result.user
+            console.log(user)
+        })
+        .catch(err=>console.log(err))
     
       };
     return (

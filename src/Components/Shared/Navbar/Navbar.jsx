@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/icons/logo.svg';
-const Navbar = () => { 
-    const Items = 
-    <>
-    <li><Link to="/">Home</Link></li>
-    <li><Link to="/about">About</Link></li>
-    <li><Link to="/blog">Blog</Link></li>
-    <li><Link to="/services">Services</Link></li>
-    <li><Link to="/contact">Contact</Link></li>
-    <li><Link to="/login">Login</Link></li>
-    <li><Link to="/register">Register</Link></li>
-    </>
+import { AuthContext } from '../../Provider/AuthProvider';
+
+
+
+const Navbar = () => {
+
+    const {user,LogOut} = useContext(AuthContext)
+
+    const handleLogOut = ()=>{
+        LogOut()
+        .then(()=>{})
+        .catch(error=> console.log(error))
+    }
+    const Items =
+        <>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/blog">Blog</Link></li>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+            {
+                user?.email ? 
+                <> 
+                <li><Link to="/booking">My Bookings</Link></li>
+                <li><button onClick={handleLogOut}>Logout</button></li>
+                </>
+                : <li><Link to="/login">Login</Link></li>
+            }
+            <li><Link to="/register">Register</Link></li>
+        </>
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -40,7 +59,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                {Items}
+                    {Items}
                 </ul>
             </div>
             <div className="navbar-end">

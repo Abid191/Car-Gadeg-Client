@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Blog = () => {
+const Contact = () => {
     return (
         <div>
             <h2 className='text-center font-bold text-2xl mb-10'> work is not complete!</h2>
@@ -8,4 +8,4 @@ const Blog = () => {
     );
 };
 
-export default Blog;
+export default Contact;
