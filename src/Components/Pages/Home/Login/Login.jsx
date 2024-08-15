@@ -32,6 +32,7 @@ const Login = () => {
             .catch(err => console.log(err))
         }
 
+        // Login Page Start
 
         return (
             <div className="hero min-h-screen bg-base-200">
